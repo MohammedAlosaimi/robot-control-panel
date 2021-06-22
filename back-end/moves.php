@@ -22,7 +22,8 @@ if($count == 1) {
         echo "Error updating record: " . mysqli_error($conn) . " ";
     }
 } else{
-    $sql = "INSERT INTO moves(move) VALUES ('$move')";
+    $stop = 'stop';
+    $sql = "INSERT INTO moves(run, move) VALUES ('$stop', '$move')";
 
     if(mysqli_query($conn, $sql)){
         echo "Data has been successfully insert into the record (move = " . $move .")";
