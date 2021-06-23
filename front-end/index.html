@@ -18,18 +18,18 @@
         
         <p id="title">Robot Controller</p>
         <div id="up">
-            <input type="button" id="forward" class="button" onclick="submitMove('forward');" value="forward">
+            <button id="forward" class="button" onclick="submitMove('forward');">forward</button>
         </div>
         <div id="center">
-            <input type="button" id="left" class="button" onclick="submitMove('left');" value="left">
+            <button id="left" class="button" onclick="submitMove('left');">left</button>
             <img id="image" src="/phpinvisualStudioCode/robot-control-panel/image/image1.png" alt="Robot">
-            <input type="button" id="right" class="button" onclick="submitMove('right');" value="right">
+            <button id="right" class="button" onclick="submitMove('right');">right</button>
         </div>
         <div id="bottom">
-            <input type="button" id="backward" class="button" onclick="submitMove('backward');" value="backward">
+            <button id="backward" class="button" onclick="submitMove('backward');">backward</button>
         </div>
         <div id="run">
-            <input type="button" id="start-stop" class="button" onclick="submitRun();" value="start" />
+            <button id="start-stop" class="button" title="start" onclick="submitRun();">start</button>
         </div>
     </div>
 
