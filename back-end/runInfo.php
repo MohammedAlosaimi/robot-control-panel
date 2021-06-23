@@ -4,7 +4,7 @@
 
 include_once "config.php";
 
-$sql = "SELECT run FROM run WHERE id = 1";
+$sql = "SELECT run FROM moves WHERE id = 1";
 
 $result = mysqli_query($conn,$sql);
 
