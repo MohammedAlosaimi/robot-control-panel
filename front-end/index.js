@@ -18,8 +18,9 @@ var imageLoop;
 
 // when submit move
 function submitMove( move ){
-    clearInterval(imageLoop);
+    
     if(run.title == "stop"){
+        clearInterval(imageLoop);
         if(move == "forward"){
             imageForward();
         } else if(move == "left"){
