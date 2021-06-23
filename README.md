@@ -62,17 +62,17 @@ This project only needs to design two tables. One is to save the current state f
 
 | Attribute |                   Description                      | Datatype |  PK |
 |:---------:|:--------------------------------------------------:|:--------:|:---:|
-|    id     |       This id used to determine which arm          |  integer | yes |
+|    id     |       This id used to determine which robot        |  integer | yes |
 |    run    | Used to check whether the robot has started or not |  string  | no  |
 |    move   |      Used to store the direction of movement       |  string  | no  |
 <br/>
 <p align="center"> Table 2: Last move table.
 </p>
 
-| Attribute |            Description              | Datatype |  PK |
-|:---------:|:-----------------------------------:|:--------:|:---:|
-|    id     | This id used to determine which arm |  integer | yes |
-|   action  |    Used to store the last action    |  string  | no  |
+| Attribute |              Description              | Datatype |  PK |
+|:---------:|:-------------------------------------:|:--------:|:---:|
+|    id     | This id used to determine which tobot |  integer | yes |
+|   action  |     Used to store the last action     |  string  | no  |
 
 <!-- IMPLEMENTATION -->
 ## Implementation
