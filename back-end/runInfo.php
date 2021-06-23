@@ -14,7 +14,9 @@ $v = 'stop';
 
 
 while($row = mysqli_fetch_assoc($result)){
-    $v = $row['run'];
+    if($row['run'] == "start" || $row['run'] == "stop" ){
+        $v = $row['run'];
+    }
 }
 
 echo json_encode($v);
