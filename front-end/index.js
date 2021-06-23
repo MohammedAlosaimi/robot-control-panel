@@ -95,8 +95,8 @@ function enLanguage(){
     }
 
     //hide the(arabic word) on the top of the page
-    arabic.classList.remove("hidden");
-    english.classList.add("hidden")
+    english.classList.remove("hidden");
+    arabic.classList.add("hidden")
 }
 
 //Check if the robot is already turned on or not
