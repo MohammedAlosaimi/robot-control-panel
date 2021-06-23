@@ -28,7 +28,9 @@ The interface is designed in a simple way for ease of use. It also met the main 
     <p align="center">
         figure 1: Interface.
     </p>
+</p>
     <br>
+<p align="center">
     <img src="image/mobileInterface.png" alt="mobile interface" width="375">
     <p align="center">
         figure 2: Mobile web interface.
@@ -87,12 +89,12 @@ This section explains what each button does and explains the implementation of t
     figure 9: Buttons
 </p>
 <p align="center">
-    <img src="image/stopButton.png" alt="stop button" width="160">
+    <img src="image/stopButton.png" alt="stop button" width="200">
     <br/>
     figure 10: Stop button
 </p>
 <p align="center">
-    <img src="image/languageButton.png" alt="language button" width="160">
+    <img src="image/languageButton.png" alt="language button" width="200">
     <br/>
     figure 11: Language button
 </p>
