@@ -7,30 +7,23 @@ const arabic = document.getElementById("arabic");
 const english = document.getElementById("english");
 const image = document.getElementById("image");
 const imageLink = "/phpinvisualStudioCode/robot-control-panel/image/";
-const forwardLink = ["forward1.png", "forward.png"];
-const leftLink = ["left1.png", "left2.png"];
-const rightLink = ["right1.png", "right2.png"];
-const backwardLink = ["backward1.png", "backward2.png"];
-const stopLink = ["stop1.png", "stop2.png", "stop3.png", "stop4.png"];
-const startLink = "start.png";
-
-var imageLoop;
 
 // when submit move
 function submitMove( move ){
     
+    // check if the robot in start state then add the gif image
     if(run.title == "stop"){
-        clearInterval(imageLoop);
         if(move == "forward"){
-            imageForward();
+            image.src = imageLink + "forward.gif";
         } else if(move == "left"){
-            imageLeft();
+            image.src = imageLink + "left.gif";
         } else if(move == "right"){
-            imageRight();
+            image.src = imageLink + "right.gif";
         } else {
-            imageBackward();
+            image.src = imageLink + "backward.gif";
         }
     }
+    // stor in the database the move
     $.post("/phpinvisualStudioCode/robot-control-panel/back-end/moves.php", {moves: move}, function(data){
         return confirm( data);
     });
@@ -39,18 +32,19 @@ function submitMove( move ){
 // when submit the start/stop
 function submitRun(){
     var action = run.title;
-    clearInterval(imageLoop);
 
+    // replace the start/stop button
     if(action == "start"){
-        imageStart();
+        image.src = imageLink + "start.png";
         run.title = "stop";
         run.style.border = "3px solid red";
     } else{
-        imageStop();
+        image.src = imageLink + "stop.gif";
         run.title = "start";
         run.style.border = "3px solid green";
     }
 
+    // store in the database
     $.post("/phpinvisualStudioCode/robot-control-panel/back-end/run.php", {run: action}, function(data){
         return confirm( data);
     });
@@ -114,12 +108,12 @@ fetch("/PHPinVisualStudioCode/robot-control-panel/back-end/runInfo.php").then(
     var runInfo = response;
 
     if(runInfo == "start"){
-        imageStart();
+        image.src = imageLink + "start.png";
         run.title = "stop";
         run.innerHTML = "stop";
         run.style.border = "3px solid red";
     } else{
-        imageStop();
+        image.src = imageLink + "stop.gif";
         run.title = "start";
         run.innerHTML = "start";
         run.style.border = "3px solid green";
@@ -128,63 +122,3 @@ fetch("/PHPinVisualStudioCode/robot-control-panel/back-end/runInfo.php").then(
 .catch(err => {
     console.error(err);
 });
-
-function imageStop(){
-    image.src = imageLink + "stop1.png";
-    image.dataset["num"] = "0"
-    imageLoop = setInterval(function(){
-        var i = (parseInt(image.dataset["num"]) < stopLink.length -1) ? parseInt(image.dataset["num"]) + 1: 0;
-        image.dataset["num"] = i.toString();
-        //console.log(i);
-        image.src = imageLink + stopLink[i];
-    }, 800);
-}
-
-function imageStart(){
-    image.src = imageLink + "start.png";
-    image.dataset["num"] = "0"
-}
-
-function imageForward(){
-    image.src = imageLink + "forward1.png";
-    image.dataset["num"] = "0"
-    imageLoop = setInterval(function(){
-        var i = (parseInt(image.dataset["num"]) < forwardLink.length -1) ? parseInt(image.dataset["num"]) + 1: 0;
-        image.dataset["num"] = i.toString();
-        //console.log(i);
-        image.src = imageLink + forwardLink[i];
-    }, 500);
-}
-
-function imageLeft(){
-    image.src = imageLink + "left1.png";
-    image.dataset["num"] = "0"
-    imageLoop = setInterval(function(){
-        var i = (parseInt(image.dataset["num"]) < leftLink.length -1) ? parseInt(image.dataset["num"]) + 1: 0;
-        image.dataset["num"] = i.toString();
-        //console.log(i);
-        image.src = imageLink + leftLink[i];
-    }, 500);
-}
-
-function imageRight(){
-    image.src = imageLink + "right1.png";
-    image.dataset["num"] = "0"
-    imageLoop = setInterval(function(){
-        var i = (parseInt(image.dataset["num"]) < rightLink.length -1) ? parseInt(image.dataset["num"]) + 1: 0;
-        image.dataset["num"] = i.toString();
-        //console.log(i);
-        image.src = imageLink + rightLink[i];
-    }, 500);
-}
-
-function imageBackward(){
-    image.src = imageLink + "backward1.png";
-    image.dataset["num"] = "0"
-    imageLoop = setInterval(function(){
-        var i = (parseInt(image.dataset["num"]) < backwardLink.length -1) ? parseInt(image.dataset["num"]) + 1: 0;
-        image.dataset["num"] = i.toString();
-        //console.log(i);
-        image.src = imageLink + backwardLink[i];
-    }, 500);
-}
